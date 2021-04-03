@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
 # Create your views here.
-from catalog.models import Ieltsstories, Ieltstest
+from catalog.models import ieltsstories, ieltstest
 
 def index(request):
     """View function for home page of site."""
 
     # Generate counts of some of the main objects
-    num_Stories = Ieltsstories.objects.all().count()
+    num_Stories = ieltsstories.objects.all().count()
 
 
     context = {
@@ -19,12 +19,12 @@ def index(request):
 
 from django.views import generic
 
-class IeltsstoriesListView(generic.ListView):
-    model = Ieltsstories
+class ieltsstoriesListView(generic.ListView):
+    model = ieltsstories
     paginate_by = 10
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get the context
-        context = super(IeltsstoriesListView, self).get_context_data(**kwargs)
+        context = super(ieltsstoriesListView, self).get_context_data(**kwargs)
         # Create any data and add it to the context
         context['some_data'] = 'This is just some data'
         return context
@@ -32,15 +32,15 @@ class IeltsstoriesListView(generic.ListView):
 from django.shortcuts import get_object_or_404
 
 
-class IeltsstoriesDetailView(generic.DetailView):
-    model = Ieltsstories
+class ieltsstoriesDetailView(generic.DetailView):
+    model = ieltsstories
     def story_detail_view(request, primary_key):
-        ieltsstories = get_object_or_404(Ieltsstories, pk=primary_key)
+        ieltsstories = get_object_or_404(ieltsstories, pk=primary_key)
         return render(request, 'catalog/ieltsstories_detail.html', context={'story': ieltsstories})
 
 def test_list(request):
     l =[]
-    t = Ieltstest.objects.values('sublevel')
+    t = ieltstest.objects.values('sublevel')
     for i in range(len(t)):
     #context['sub'] =  Ieltstest.objects.filter().values('sublevel')[1]['sublevel']
         l +=  [t[i]['sublevel']]
@@ -54,7 +54,7 @@ from django.urls import reverse
 import json
 
 def testDetailView(request,sub):
-    ct = Ieltstest.objects.all().filter(sublevel=sub)
+    ct = ieltstest.objects.all().filter(sublevel=sub)
     context ={'sub': sub, 'content' : ct }
     if request.method == 'POST':
         t = request.POST.dict()
