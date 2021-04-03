@@ -64,10 +64,9 @@ def testDetailView(request,sub):
 
         for i in ct:
             try:
-                if t[str(i.qnumber)] == i.correctanswer:
-                p+= [str(i.qnumber) +'. ' + i.qcontent, 'your answer:   '+ t[str(i.qnumber)],'correctanswer:   ' + i.correctanswer]
+                p+= [str(i.qnumber) +'. ' + i.qcontent, 'your answer:   '+ t[str(i.qnumber)],'correct answer:   ' + i.correctanswer]
             except:
-                p+=[str(i.qnumber) +'. ' + i.qcontent, 'your answer:   None', 'correctanswer:   ' + i.correctanswer]
+                p+=[str(i.qnumber) +'. ' + i.qcontent, 'your answer:   None', 'correct answer:   ' + i.correctanswer]
                 continue
         context['result'] = p
         context['sum'] = 'you answer correct ' + str(s) + '/' + str(int(len(p)/3))
