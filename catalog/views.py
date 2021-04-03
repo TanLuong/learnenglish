@@ -61,15 +61,12 @@ def testDetailView(request,sub):
         #p.pop('csrfmiddlewaretoken')
         #p.pop("csrfmiddlewaretoken")
         p =[]
-        s = 0
-        plus = 0
+
         for i in ct:
             try:
                 if t[str(i.qnumber)] == i.correctanswer:
-                    s += 1
                 p+= [str(i.qnumber) +'. ' + i.qcontent, 'your answer:   '+ t[str(i.qnumber)],'correctanswer:   ' + i.correctanswer]
             except:
-                plus +=1
                 p+=[str(i.qnumber) +'. ' + i.qcontent, 'your answer:   None', 'correctanswer:   ' + i.correctanswer]
                 continue
         context['result'] = p
