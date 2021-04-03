@@ -8,6 +8,223 @@
 from django.db import models
 
 
+class Ieltsessay(models.Model):
+    title = models.TextField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'IELTSEssay'
+
+
+class Ieltsstories(models.Model):
+    title = models.TextField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'IELTSStories'
+
+
+class Ieltstest(models.Model):
+    sublevel = models.IntegerField(db_column='SubLevel', blank=True, null=True)  # Field name made lowercase.
+    qnumber = models.AutoField(db_column='QNumber', primary_key=True, blank=True, null=True)  # Field name made lowercase.
+    qcontent = models.TextField(db_column='QContent', blank=True, null=True)  # Field name made lowercase.
+    answera = models.TextField(db_column='AnswerA', blank=True, null=True)  # Field name made lowercase.
+    answerb = models.TextField(db_column='AnswerB', blank=True, null=True)  # Field name made lowercase.
+    answerc = models.TextField(db_column='AnswerC', blank=True, null=True)  # Field name made lowercase.
+    answerd = models.TextField(db_column='AnswerD', blank=True, null=True)  # Field name made lowercase.
+    correctanswer = models.TextField(db_column='CorrectAnswer', blank=True, null=True)  # Field name made lowercase.
+    passed = models.IntegerField(db_column='Passed', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'IELTSTest'
+
+
+class Ieltswords(models.Model):
+    keyword = models.TextField(blank=True, null=True)
+    type = models.TextField(blank=True, null=True)
+    definition = models.TextField(blank=True, null=True)
+    example = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'IELTSWords'
+
+
+class Iverbsfull(models.Model):
+    baseform = models.CharField(blank=True, null=True)
+    pastsimple = models.CharField(blank=True, null=True)
+    pastpart = models.CharField(blank=True, null=True)
+    person3rd = models.CharField(blank=True, null=True)
+    gerund = models.CharField(blank=True, null=True)
+    definition = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'IVerbsFull'
+
+
+class Idioms(models.Model):
+    title = models.TextField(blank=True, null=True)
+    desc = models.TextField(blank=True, null=True)
+    example = models.TextField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Idioms'
+
+
+class Listening(models.Model):
+    title = models.CharField(blank=True, null=True)
+    content = models.CharField(blank=True, null=True)
+    audio = models.CharField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Listening'
+
+
+class Mostcategories(models.Model):
+    id = models.IntegerField(blank=True, null=True)
+    title = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'MostCategories'
+
+
+class Mostphrases(models.Model):
+    catid = models.IntegerField(db_column='catID', blank=True, null=True)  # Field name made lowercase.
+    phrase = models.CharField(blank=True, null=True)
+    audio = models.CharField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'MostPhrases'
+
+
+class Mostwords(models.Model):
+    catid = models.IntegerField(db_column='catID', blank=True, null=True)  # Field name made lowercase.
+    word = models.CharField(blank=True, null=True)
+    audio = models.CharField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'MostWords'
+
+
+class Phrasalverb(models.Model):
+    title = models.TextField(blank=True, null=True)
+    definition = models.TextField(blank=True, null=True)
+    example = models.TextField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'PhrasalVerb'
+
+
+class Proverbs(models.Model):
+    title = models.CharField(blank=True, null=True)
+    desc = models.CharField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Proverbs'
+
+
+class Sat(models.Model):
+    title = models.TextField(blank=True, null=True)
+    definition = models.TextField(blank=True, null=True)
+    example = models.TextField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Sat'
+
+
+class Slangs(models.Model):
+    title = models.CharField(blank=True, null=True)
+    definition = models.CharField(blank=True, null=True)
+    example = models.CharField(blank=True, null=True)
+    etymology = models.CharField(blank=True, null=True)
+    synonyms = models.CharField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Slangs'
+
+
+class Tenses(models.Model):
+    title = models.TextField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Tenses'
+
+
+class Topicidioms(models.Model):
+    name = models.CharField(blank=True, null=True)
+    title = models.CharField(blank=True, null=True)
+    desc = models.CharField(blank=True, null=True)
+    example = models.CharField(blank=True, null=True)
+    subcate = models.CharField(db_column='subCate', blank=True, null=True)  # Field name made lowercase.
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'TopicIdioms'
+
+
+class Topicphrases(models.Model):
+    topicid = models.IntegerField(db_column='TopicId', blank=True, null=True)  # Field name made lowercase.
+    explaination = models.TextField(blank=True, null=True)
+    sentence = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'TopicPhrases'
+
+
+class Topics(models.Model):
+    title = models.TextField(blank=True, null=True)
+    desc = models.TextField(blank=True, null=True)
+    favorite = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Topics'
+
+
+class Verbs(models.Model):
+    id = models.IntegerField(blank=True, null=True)
+    word = models.CharField(blank=True, null=True)
+    content = models.CharField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Verbs'
+
+
+class AndroidMetadata(models.Model):
+    locale = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'android_metadata'
+
+
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -27,9 +244,9 @@ class AuthGroupPermissions(models.Model):
 
 
 class AuthPermission(models.Model):
-    name = models.CharField(max_length=255)
     content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
     codename = models.CharField(max_length=100)
+    name = models.CharField(max_length=255)
 
     class Meta:
         managed = False
@@ -42,12 +259,12 @@ class AuthUser(models.Model):
     last_login = models.DateTimeField(blank=True, null=True)
     is_superuser = models.BooleanField()
     username = models.CharField(unique=True, max_length=150)
-    first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
     email = models.CharField(max_length=254)
     is_staff = models.BooleanField()
     is_active = models.BooleanField()
     date_joined = models.DateTimeField()
+    first_name = models.CharField(max_length=150)
 
     class Meta:
         managed = False
@@ -85,10 +302,10 @@ class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
     object_repr = models.CharField(max_length=200)
-    action_flag = models.SmallIntegerField()
     change_message = models.TextField()
     content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    action_flag = models.PositiveSmallIntegerField()
 
     class Meta:
         managed = False
@@ -123,3 +340,121 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
+
+
+class Gmat(models.Model):
+    title = models.TextField(blank=True, null=True)
+    meaning = models.TextField(blank=True, null=True)
+    favorite = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'gmat'
+
+
+class Grammars(models.Model):
+    id = models.IntegerField(blank=True, null=True)
+    name = models.CharField(blank=True, null=True)
+    content = models.CharField(blank=True, null=True)
+    menuid = models.IntegerField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'grammars'
+
+
+class Gramuse(models.Model):
+    title = models.TextField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'gramuse'
+
+
+class Gre(models.Model):
+    title = models.TextField(blank=True, null=True)
+    definition = models.TextField(blank=True, null=True)
+    sentence = models.TextField(blank=True, null=True)
+    favorite = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'gre'
+
+
+class Ielts(models.Model):
+    title = models.CharField(blank=True, null=True)
+    desc = models.CharField(blank=True, null=True)
+    content = models.CharField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'ielts'
+
+
+class Lessons(models.Model):
+    type = models.IntegerField(blank=True, null=True)
+    title = models.CharField(blank=True, null=True)
+    content = models.CharField(blank=True, null=True)
+    question = models.CharField(blank=True, null=True)
+    audio = models.CharField(blank=True, null=True)
+    favorite = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'lessons'
+
+
+class Pronun(models.Model):
+    id = models.IntegerField(blank=True, null=True)
+    title = models.CharField(blank=True, null=True)
+    category = models.CharField(blank=True, null=True)
+    content = models.CharField(blank=True, null=True)
+    desc = models.CharField(blank=True, null=True)
+    image = models.CharField(blank=True, null=True)
+    audio = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'pronun'
+
+
+class PronunDetail(models.Model):
+    id = models.IntegerField(blank=True, null=True)
+    catid = models.IntegerField(db_column='catID', blank=True, null=True)  # Field name made lowercase.
+    seq = models.IntegerField(blank=True, null=True)
+    content = models.CharField(blank=True, null=True)
+    audio = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'pronun_detail'
+
+
+class Rules(models.Model):
+    id = models.IntegerField(blank=True, null=True)
+    catid = models.IntegerField(blank=True, null=True)
+    name = models.CharField(blank=True, null=True)
+    content = models.CharField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'rules'
+
+
+class Vocabs(models.Model):
+    cate1 = models.CharField(blank=True, null=True)
+    cate2 = models.CharField(blank=True, null=True)
+    word = models.CharField(blank=True, null=True)
+    meaning = models.CharField(blank=True, null=True)
+    note = models.TextField(blank=True, null=True)  # This field type is a guess.
+    image = models.CharField(blank=True, null=True)
+    favorite = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'vocabs'
