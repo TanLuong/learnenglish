@@ -8,7 +8,7 @@ class ieltsstories(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'ieltsstories'
+        db_table = 'IELTSStories'
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""
         return reverse('ieltsstories-detail', args=[str(self.id)])
@@ -29,8 +29,11 @@ class ieltstest(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'ieltstest'
+        db_table = 'IELTSTest'
 
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""
         return reverse('test-detail', args=[str(self.id)])
+
+    def __str__(self):
+        return self.sublevel

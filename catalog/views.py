@@ -7,8 +7,8 @@ def index(request):
     """View function for home page of site."""
 
     # Generate counts of some of the main objects
-    num_Stories = ieltsstories.objects.all().count()
-
+    #num_Stories = ieltsstories.objects.all().count()
+    num_Stories = 'haha'
 
     context = {
         'num_Stories' : num_Stories

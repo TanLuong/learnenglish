@@ -91,13 +91,13 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'nhattan_database',
+        'NAME': 'postgres',
 
-        'USER': 'nhattan_database',
+        'USER': 'postgres',
 
         'PASSWORD': 'Khongbiet2807',
 
-        'HOST': '127.0.0.1',
+        'HOST': '*',
 
         'PORT': '5432',
 
